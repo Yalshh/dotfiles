@@ -13,6 +13,7 @@
             "clock"
       ],
       "modules-right": [
+            "custom/clipboard",
             "pulseaudio",
             "custom/speed",
             "network",
@@ -21,6 +22,7 @@
             "battery",
             "cpu",
             "custom/power",
+            
       ],
       // Modules configuration
       "cava": {
@@ -180,6 +182,13 @@
             "tooltip": false,
             "on-click": "~/.local/bin/powermenu"
       },
+
+      "custom/clipboard": {
+            "format": " ",
+            "tooltip": false,
+            "on-click": "~/.local/bin/clipboard-menu"
+}
+
 
 }
 

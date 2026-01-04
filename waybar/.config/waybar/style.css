@@ -31,7 +31,7 @@ window#waybar {
 #custom-launcher,
 #custom-power {
     background-color: transparent;
-    color: #7aa2f7;
+    color: #bb9af7;
     padding: 3px 10px;   /* balanced */
     margin: 0;
     border: none;
@@ -59,7 +59,7 @@ window#waybar {
 #window {
     background-color: #24283b;
     border: solid 2px #565f89;
-    color: #7aa2f7;
+    color: #bb9af7;
     padding: 3px 8px;
     margin: 6px 4px;
 }
@@ -122,13 +122,14 @@ window#waybar {
 
 
 /* Module colors */
-#backlight  { color: #7aa2f7; } 
-#network    { color: #7aa2f7; }  
-#memory     { color: #7aa2f7; } 
-#cpu        { color: #7aa2f7; }  
-#pulseaudio { color: #7aa2f7; }  
-#battery    { color: #7aa2f7; }  
+#backlight  { color: #bb9af7; } 
+#network    { color: #bb9af7; }  
+#memory     { color: #bb9af7; } 
+#cpu        { color: #bb9af7; }  
+#pulseaudio { color: #bb9af7; }  
+#battery    { color: #bb9af7; }  
 
+#custom-clipboard {color: #bb9af7 }
 
 #battery.charging,
 #battery.plugged {
