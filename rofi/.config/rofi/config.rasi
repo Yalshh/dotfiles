@@ -10,7 +10,7 @@ configuration {
       window-format:              "{w} · {c} · {t}";
 }
 
-@import                          ".config/rofi/gruvbox.rasi"
+@import                          ".config/rofi/colors.rasi"
 @import                          ".config/rofi/fonts.rasi"
 
 * {
@@ -26,7 +26,7 @@ configuration {
       urgent-foreground:           var(background);
       active-background:           var(active);
       active-foreground:           var(background);
-      selected-normal-background:  #83a598;
+      selected-normal-background:  #bb9af7;
       selected-normal-foreground:  var(background);
       selected-urgent-background:  var(active);
       selected-urgent-foreground:  var(background);
@@ -78,7 +78,7 @@ inputbar {
       padding:                     0px;
       border:                      3px solid;
       border-radius:               0px;
-      border-color:                #ea6962;
+      border-color:                #565f89;
       background-color:            transparent;
       text-color:                  @foreground-colour;
       children:                    [ "textbox-prompt-colon", "entry" ];
@@ -90,10 +90,9 @@ textbox-prompt-colon {
       margin:                      0px;
       expand:                      false;
       str:                         "Search:";
-      border:                      3px solid;
-      border-color:                #ea6962;
-      background-color:            #ea6962;
-      text-color:                  #1d2021;
+      border-color:                #bb9af7;
+      background-color:            #bb9af7;
+      text-color:                  #1a1b26;
 }
 entry {
       enabled:                     true;
@@ -102,7 +101,7 @@ entry {
       background-color:            inherit;
       text-color:                  inherit;
       cursor:                      text;
-      placeholder-color:           #1d2021;
+      placeholder-color:           #565f89;
 }
 num-filtered-rows {
       enabled:                     true;

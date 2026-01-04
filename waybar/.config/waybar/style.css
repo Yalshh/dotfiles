@@ -6,7 +6,7 @@
 
 window#waybar {
     background: transparent;
-    color: #d4be98;
+    color: #c0caf5;
     border-radius: 9px;
     margin: 12px 100px;
 }
@@ -40,115 +40,126 @@ window#waybar {
 
 /* Launcher */
 #custom-launcher {
-    background-color: #1d2021;
-    color: #ea6962;
-    border: solid 2px #7daea3;
+    background-color: #24283b;
+    color: #bb9af7;
+    border: solid 2px #565f89;
     padding: 3px 8px;
     margin: 6px 4px;
 }
 
 /* MPD */
 #mpd {
-    background-color: #1d2021;
-    color: #a9b665;
+    background-color: #24283b;
+    color: #9ece6a;
     padding: 3px 8px;
     margin: 6px 4px;
 }
 
 /* Window title */
 #window {
-    background-color: #1d2021;
-    border: solid 2px #7daea3;
-    color: #7daea3;
+    background-color: #24283b;
+    border: solid 2px #565f89;
+    color: #7aa2f7;
     padding: 3px 8px;
     margin: 6px 4px;
 }
 
 /* Center modules */
 .modules-center {
-    background-color: #1d2021;
-    border: solid 2px #7daea3;
-    color: #ea6962;
+    background-color: #24283b;
+    border: solid 2px #565f89;
+    color: #bb9af7;
     padding: 3px 8px;
     margin: 6px 4px;
 }
 
 /* Right modules */
 .modules-right {
-    background-color: #1d2021;
-    border: solid 2px #7daea3;
+    background-color: #24283b;
+    border: solid 2px #565f89;
     padding: 3px 8px;
     margin: 6px 4px;
 }
 
-#tags {
-    background-color: #1d2021;
-    border: solid 2px #7daea3;
+/* Hyprland workspaces (replacement for river tags) */
+#workspaces {
+    background-color: #24283b;
+    border: solid 2px #565f89;
     padding: 0;
     margin: 6px 4px;
 }
 
-#tags button {
-    padding: 3px 10px; 
+#workspaces button {
+    padding: 3px 10px;
+    margin: 0;
+    min-width: 26px;
+
     background-color: transparent;
-    color: #83a598;
+    color: #c0caf5;
+
+    border: 2px solid transparent; /* żeby active mógł mieć ramkę */
+    border-radius: 0;
 }
 
 /* Hover */
-#tags button:hover {
-    background-color: #3c3836;
-    color: #ddc7a1;
+#workspaces button:hover {
+    background-color: #1a1b26;
+    color: #c0caf5;
 }
 
-/* Active */
-#tags button.focused,
-#tags button.active {
-    color: #ea6962;
+/* Active workspace = podświetlony box z numerkiem w środku */
+#workspaces button.active {
+    background-color: #bb9af7;
+    color: #1a1b26;
+    border-color: #bb9af7;
 }
 
 /* Urgent */
-#tags button.urgent {
-    background-color: #ea6962;
-    color: #282828;
+#workspaces button.urgent {
+    background-color: #f7768e;
+    color: #1a1b26;
 }
 
+
 /* Module colors */
-#backlight  { color: #d8a657; }
-#memory     { color: #e78a4e; }
-#battery    { color: #d3869b; }
-#network    { color: #d8a657; }
-#pulseaudio { color: #7daea3; }
+#backlight  { color: #7aa2f7; } 
+#network    { color: #7aa2f7; }  
+#memory     { color: #7aa2f7; } 
+#cpu        { color: #7aa2f7; }  
+#pulseaudio { color: #7aa2f7; }  
+#battery    { color: #7aa2f7; }  
+
 
 #battery.charging,
 #battery.plugged {
-    color: #a9b665;
+    color: #9ece6a;
 }
 
 #pulseaudio.muted {
-    color: #ea6962;
+    color: #f7768e;
 }
 
 /* Critical battery */
 #battery.critical:not(.charging) {
-    background-color: #ea6962;
-    color: #d4be98;
+    background-color: #f7768e;
+    color: #1a1b26;
     animation: blink 0.5s steps(12) infinite alternate;
 }
 
 /* Cava */
 #cava {
-    background-color: #1d2021;
-    color: #89b482;
+    background-color: #24283b;
+    color: #7dcfff;
     font-family: "Iosevka Nerd Font";
-    border: solid 2px #89b482;
+    border: solid 2px #565f89;
     padding: 3px 12px;   /* wider but same height */
     margin: 6px 4px;
 }
 
 @keyframes blink {
     to {
-        background-color: #d4be98;
-        color: #282828;
+        background-color: #c0caf5;
+        color: #1a1b26;
     }
 }
 
@@ -159,4 +170,3 @@ window#waybar {
 .modules-right > widget:last-child > #tags {
     margin-right: 0;
 }
-

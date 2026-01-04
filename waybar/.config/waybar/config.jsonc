@@ -19,6 +19,9 @@
             "memory",
             "backlight",
             "battery",
+            "cpu",
+            "custom/power",
+            "tray"
       ],
       // Modules configuration
       "cava": {
@@ -36,7 +39,7 @@
       "custom/launcher":{
             "format": " ",
             "on-click": "rofi -show drun",
-            "on-click-right": "killall rofi"
+            
       },
 
       "hyprland/workspaces": {
@@ -103,7 +106,7 @@
       },
       "clock": {
             "tooltip-format": "󰥔 <big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "format": "󰥔 {:%I:%M %p %a %d}"
+            "format": "󰥔 {:%d.%m.%Y %H:%M}"
       },
       "cpu": {
             "format": "{usage}% ",
@@ -173,16 +176,11 @@
             "on-click": "pavucontrol"
       },
       "custom/power": {
-            "format": "⏻ ",
+            "format": "",
             "tooltip": false,
-            "menu": "on-click",
-            "menu-file": "$HOME/.config/waybar/power_menu.xml",
-            "menu-actions": {
-                  "shutdown": "shutdown",
-                  "reboot": "reboot",
-                  "suspend": "systemctl suspend",
-                  "hibernate": "systemctl hibernate"
-            }
-      }
+            "on-click": "~/.local/bin/powermenu"
+      },
+
 }
+
 
