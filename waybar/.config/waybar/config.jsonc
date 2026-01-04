@@ -158,7 +158,7 @@
             "format-wifi": "{icon} {essid}",
             "format-ethernet": "󰌗  {ifname}",
             "format-disconnected": "Disconnected ⚠",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}",
+            "format-alt": "󰌗  {ifname}: {ipaddr}/{cidr}",
             "interval": 5,
             "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"]
       },
