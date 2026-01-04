@@ -21,7 +21,6 @@
             "battery",
             "cpu",
             "custom/power",
-            "tray"
       ],
       // Modules configuration
       "cava": {
@@ -37,7 +36,7 @@
       },
 
       "custom/launcher":{
-            "format": " ",
+            "format": "",
             "on-click": "rofi -show drun",
             
       },
@@ -106,16 +105,16 @@
       },
       "clock": {
             "tooltip-format": "󰥔 <big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "format": "󰥔 {:%d.%m.%Y %H:%M}"
+            "format": "󰥔  {:%d.%m.%Y %H:%M}"
       },
       "cpu": {
-            "format": "{usage}% ",
+            "format": "  {usage}%",
             "tooltip": false
       },
 
-      "river/tags": {
-            "num-tags": 5,
-            "tag-labels": ["", "󰈹","","",""],
+      "hyprland/workspaces": {
+            "num-tags": 3,
+            "tag-labels": ["", "󰈹",""],
       },
 
 
@@ -157,13 +156,14 @@
       },
       "network": {
             "format-wifi": "{icon} {essid}",
+            "format-ethernet": "󰌗  {ifname}",
             "format-disconnected": "Disconnected ⚠",
             "format-alt": "{ifname}: {ipaddr}/{cidr}",
             "interval": 5,
             "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"]
       },
       "pulseaudio": {
-            "format": "{icon}  {volume}%",
+            "format": "{icon}   {volume}%",
             "format-muted": "󰝟  {volume}%",
             "format-bluetooth": "{icon} {volume}%",
             "format-bluetooth-muted": " {volume}%",

@@ -31,7 +31,7 @@ window#waybar {
 #custom-launcher,
 #custom-power {
     background-color: transparent;
-    color: inherit;
+    color: #7aa2f7;
     padding: 3px 10px;   /* balanced */
     margin: 0;
     border: none;
@@ -97,7 +97,7 @@ window#waybar {
     background-color: transparent;
     color: #c0caf5;
 
-    border: 2px solid transparent; /* żeby active mógł mieć ramkę */
+    border: 2px solid transparent; 
     border-radius: 0;
 }
 
@@ -107,7 +107,7 @@ window#waybar {
     color: #c0caf5;
 }
 
-/* Active workspace = podświetlony box z numerkiem w środku */
+/* Active workspace */
 #workspaces button.active {
     background-color: #bb9af7;
     color: #1a1b26;
