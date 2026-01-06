@@ -40,6 +40,11 @@ window#waybar {
     margin: 6px 4px;           /* Odstęp między modułami */
 }
 
+#custom-mpris-prev,
+#custom-mpris-play,
+#custom-mpris-next,
+#mpris,
+
 #custom-bluetooth {
     background-color: #24283b;
     color: #bb9af7;
@@ -130,3 +135,4 @@ window#waybar {
 #cpu        { color: #bb9af7; }  
 #pulseaudio { color: #bb9af7; }  
 #battery    { color: #bb9af7; }
+

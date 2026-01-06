@@ -7,7 +7,8 @@
       "modules-left": [
             "custom/launcher",
             "hyprland/workspaces",
-            "hyprland/window"
+            "hyprland/window",
+            "mpris"
       ],
       "modules-center": [
             "clock"
@@ -195,7 +196,30 @@
             "tooltip": false,
             "on-click": "blueman-manager",
 
+      },
+
+            "mpris": {
+            "interval": 1,
+            "format": "<span color='#bb9af7'>{status_icon}</span> {artist} 󰎆  {title} ",
+            "format-disconnected": "Disconnected",
+            "format-stopped": "{status_icon} Stopped",
+            "ellipsis": "…",
+            "title-len": 30,
+            "player-icons": {
+                  "default": "▶",
+            },
+            "status-icons": {
+                  "paused": " ",
+                  "playing": " ",
+                  "stopped": " "
+            },
+
+            
+
+            
       }
+
+      
 
 
 }
