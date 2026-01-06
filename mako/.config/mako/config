@@ -20,6 +20,8 @@ layer=top
 default-timeout=6000
 ignore-timeout=1
 group-by=app-name
+border-radius=12
+
 
 # Interaction (make clicks always do something)
 # Left click: dismiss (reliable for all notifications)

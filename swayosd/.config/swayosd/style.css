@@ -1,10 +1,10 @@
-/* ───────── swayosd ───────── */
+/* ───────── swayosd (rofi-like glass) ───────── */
 
 window {
-  background: rgba(22, 22, 30, 0.95);   /* #16161e */
-  border: 3px solid rgba(187, 154, 247, 1.0); /* #bb9af7 */
-  border-radius: 0px;
-  padding: 14px 20px;
+  background: rgba(20, 22, 34, 0.90);          /* #141622 ~E6 */
+  border: 2px solid rgba(187, 154, 247, 1.0);  /* #bb9af7 */
+  border-radius: 12px;
+  padding: 12px 16px;
 }
 
 label {
@@ -15,15 +15,14 @@ label {
 
 /* Progress bar container */
 progressbar trough {
-  background: rgba(86, 95, 137, 0.45); /* #565f89 */
-  border-radius: 0px;
-  min-height: 12px;
+  background: rgba(86, 95, 137, 0.35); /* #565f89 */
+  border-radius: 12px;
+  min-height: 10px;
   min-width: 220px;
 }
 
-/* Actual volume bar */
+/* Actual bar */
 progressbar progress {
-  background: rgba(187, 154, 247, 1.0); /* #7aa2f7 */
-  border-radius: 0px;
+  background: rgba(187, 154, 247, 1.0); /* #bb9af7 */
+  border-radius: 12px;
 }
-

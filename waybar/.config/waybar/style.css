@@ -1,138 +1,158 @@
 * {
-    font-family: "IosevkaTerm Nerd Font Propo", sans-serif;
-    font-weight: bold;
-    font-size: 16px;
+  font-family: "IosevkaTerm Nerd Font Propo", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
 }
-
 
 window#waybar {
-    background: transparent;
-    color: #c0caf5;
+  background: transparent;
+  color: #c0caf5;
 }
 
-/* BASE MODULE STYLING 
-   To tutaj każdy moduł staje się osobną "pudełkiem" z ostrymi krawędziami.
-*/
-#window,
-#custom-media,
-#mpd,
-#idle_inhibitor,
-#pulseaudio,
-#network,
-#power-profiles-daemon,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#keyboard-state,
-#sway-language,
-#battery,
-#clock,
-#tray,
-#custom-launcher,
-#custom-power,
-#custom-clipboard {
-    background-color: #24283b;
-    color: #bb9af7;
-    border: solid 2px #565f89;
-    border-radius: 0;           /* Ostre krawędzie */
-    padding: 3px 8px;
-    margin: 6px 4px;           /* Odstęp między modułami */
-}
-
-#custom-mpris-prev,
-#custom-mpris-play,
-#custom-mpris-next,
-#mpris,
-
-#custom-bluetooth {
-    background-color: #24283b;
-    color: #bb9af7;
-    border: solid 2px #565f89;
-    border-radius: 0;           /* Ostre krawędzie */
-    padding: 3px 8px;
-    margin: 6px 4px;           /* Odstęp między modułami */
-}
-
-/* Wyłączenie kontenerów grupowych, aby nie dublować ramek */
+/* ─────────────────────────────────────────────────────────────────────────────
+   GROUP "CAPSULES" (one frame per group instead of one frame per module)
+   ───────────────────────────────────────────────────────────────────────────── */
 .modules-left,
 .modules-center,
 .modules-right {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
+  background-color: rgba(20, 22, 34, 0.72);
+  border: 1px solid rgba(187, 154, 247, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  padding: 3px 8px;
+  margin: 6px 4px;
 }
 
-/* Workspaces (Obszary robocze) */
+/* Base look for modules inside capsules */
+#custom-launcher,
+#workspaces,
+#window,
+#mpris,
+#custom-clipboard,
+#custom-bluetooth,
+#pulseaudio,
+#network,
+#memory,
+#backlight,
+#battery,
+#cpu,
+#clock,
+#custom-power {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 3px 10px;
+  color: #c0caf5;
+}
+
+/* Slightly stronger accent for "primary" parts */
+#custom-launcher,
+#workspaces button.active,
+#mpris,
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   WORKSPACES (cleaner: underline active instead of solid block)
+   ───────────────────────────────────────────────────────────────────────────── */
 #workspaces {
-    background-color: #24283b;
-    border: solid 2px #565f89;
-    border-radius: 0;           /* Ostre krawędzie */
-    padding: 0;
-    margin: 6px 4px;
+  padding: 0 2px;
 }
 
 #workspaces button {
-    padding: 3px 10px;
-    margin: 0;
-    min-width: 26px;
-    background-color: transparent;
-    color: #c0caf5;
-    border: 2px solid transparent; 
-    border-radius: 0;           /* Ostre krawędzie przycisków */
+  padding: 2px 10px;
+  margin: 0 2px;
+  border-radius: 0px;
+  background: transparent;
+  color: #c0caf5;
+  border: 1px solid transparent;
 }
 
 #workspaces button:hover {
-    background-color: #1a1b26;
-    color: #c0caf5;
+  background-color: rgba(187, 154, 247, 0.12);
+  border-color: rgba(187, 154, 247, 0.18);
 }
 
 #workspaces button.active {
-    background-color: #bb9af7;
-    color: #1a1b26;
-    border-color: #bb9af7;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: inset 0 -3px 0 #bb9af7;
 }
 
-/* Cava */
-#cava {
-    background-color: #24283b;
-    color: #7dcfff;
-    font-family: "Iosevka Nerd Font";
-    border: solid 2px #565f89;
-    border-radius: 0;           /* Ostre krawędzie */
-    padding: 3px 12px;
-    margin: 6px 4px;
+/* Urgent without screaming red block */
+#workspaces button.urgent {
+  color: #f7768e;
+  box-shadow: inset 0 -3px 0 rgba(247, 118, 142, 0.9);
 }
 
-/* Kolory stanów specjalnych */
+/* ─────────────────────────────────────────────────────────────────────────────
+   MODULE-SPECIFIC TWEAKS
+   ───────────────────────────────────────────────────────────────────────────── */
+#custom-launcher {
+  padding-left: 8px;
+  padding-right: 12px;
+}
+
+#window {
+  opacity: 0.95;
+}
+
+#mpris {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Make icon-only modules feel centered and consistent */
+#custom-clipboard,
+#custom-bluetooth,
+#custom-power {
+  padding: 3px 12px;
+}
+
+/* Hover affordance on clickable items */
+#custom-launcher:hover,
+#custom-clipboard:hover,
+#custom-bluetooth:hover,
+#pulseaudio:hover,
+#network:hover,
+#backlight:hover,
+#battery:hover,
+#clock:hover,
+#custom-power:hover {
+  background-color: rgba(187, 154, 247, 0.12);
+  border-radius: 10px;
+}
+
+/* Status colors */
 #battery.charging,
 #battery.plugged {
-    color: #9ece6a;
+  color: #9ece6a;
 }
 
 #pulseaudio.muted {
-    color: #f7768e;
+  color: #f7768e;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f7768e;
-    color: #1a1b26;
-    animation: blink 0.5s steps(12) infinite alternate;
+  color: #f7768e;
 }
 
-@keyframes blink {
-    to {
-        background-color: #c0caf5;
-        color: #1a1b26;
-    }
+/* Tooltip styling */
+tooltip {
+  background: rgba(20, 22, 34, 0.92);
+  border: 1px solid rgba(187, 154, 247, 0.35);
+  border-radius: 12px;
+  color: #c0caf5;
 }
 
-/* Specyficzne kolory ikon dla czytelności */
-#backlight  { color: #bb9af7; } 
-#network    { color: #bb9af7; }  
-#memory     { color: #bb9af7; } 
-#cpu        { color: #bb9af7; }  
-#pulseaudio { color: #bb9af7; }  
-#battery    { color: #bb9af7; }
+tooltip label {
+  padding: 6px 10px;
+}
+
+/* Keep tray subtle (if you enable it later) */
+#tray {
+  padding: 0 10px;
+}
+
+#tray > .passive {
+  opacity: 0.6;
+}
 

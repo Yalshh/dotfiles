@@ -2,7 +2,7 @@
 
 LOCKCONF="$HOME/.config/hyprlock/hyprlock.conf"
 
-choice=$(printf "󰍃  Logout\n  Lock\n  Reboot\n  Shutdown" | rofi -dmenu -p "Power")
+choice=$(printf "󰍃  Logout\n  Lock\n  Reboot\n  Shutdown" | rofi -dmenu -p "Power" -theme ~/.config/rofi/powermenu.rasi)
 
 case "$choice" in
   "󰍃  Logout")   hyprctl dispatch exit ;;

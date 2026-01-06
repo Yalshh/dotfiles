@@ -1,9 +1,19 @@
 * {
-    background:     #1a1b26FF; 
-    background-alt: #24283bFF;  
-    foreground:     #c0caf5FF;  
-    selected:       #bb9af7FF; 
-    selected1:      #bb9af7FF;  
-    active:         #bb9af7;  
-    urgent:         #f7768eFF;  
+    /* Waybar-like dark glass */
+    background:     #141622E6;  /* rgba(20,22,34,0.72) */
+    background-alt: #141622E6;  /* slightly more opaque for inner parts */
+    foreground:     #c0caf5FF;
+
+    /* Accent */
+    selected:       #bb9af7FF;
+    selected1:      #bb9af7FF;
+
+    /* Semantic */
+    active:         #9ece6aFF;
+    urgent:         #f7768eFF;
+
+    /* Borders */
+    border-soft:    #bb9af759;  /* ~0.35 alpha */
+    border-dim:     #c0caf538;  /* subtle */
+    shadow:         #00000059;  /* soft shadow */
 }
