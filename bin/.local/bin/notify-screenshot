@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage: notify-screenshot <path> [--folder]
+# Default: open file. With --folder: open containing folder.
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: notify-screenshot <path> [--folder]" >&2
+  exit 1
+fi
+
+FILE="$1"
+MODE="${2:-}"
+
+if [[ ! -e "$FILE" ]]; then
+  echo "File does not exist: $FILE" >&2
+  exit 1
+fi
+
+OPEN_TARGET="$FILE"
+if [[ "$MODE" == "--folder" ]]; then
+  OPEN_TARGET="$(dirname "$FILE")"
+fi
+
+open_target() {
+  # 1) user-defined file manager (export FILE_MANAGER in hyprland.conf)
+  if [[ -n "${FILE_MANAGER:-}" ]] && command -v "${FILE_MANAGER%% *}" >/dev/null 2>&1; then
+    setsid -f ${FILE_MANAGER} "$OPEN_TARGET" >/dev/null 2>&1 || true
+    return 0
+  fi
+
+  # 2) prefer Dolphin if installed
+  if command -v dolphin >/dev/null 2>&1; then
+    setsid -f dolphin "$OPEN_TARGET" >/dev/null 2>&1 || true
+    return 0
+  fi
+
+  # 3) fallback
+  setsid -f xdg-open "$OPEN_TARGET" >/dev/null 2>&1 || true
+}
+
+# Send notification with action "default" -> Open
+NOTIFY_OUT="$(gdbus call --session \
+  --dest org.freedesktop.Notifications \
+  --object-path /org/freedesktop/Notifications \
+  --method org.freedesktop.Notifications.Notify \
+  "screenshot" \
+  0 \
+  "" \
+  "Screenshot" \
+  "Screenshot saved and copied to clipboard" \
+  "['default','Open']" \
+  "{}" \
+  6000)"
+
+ID="$(echo "$NOTIFY_OUT" | grep -oE 'uint32 [0-9]+' | awk '{print $2}')"
+
+# Listen briefly for click on this notification
+timeout 8s gdbus monitor --session \
+  --dest org.freedesktop.Notifications \
+  /org/freedesktop/Notifications 2>/dev/null | \
+while IFS= read -r line; do
+  if [[ "$line" == *"ActionInvoked"* && "$line" == *"uint32 $ID"* && "$line" == *"'default'"* ]]; then
+    open_target
+    exit 0
+  fi
+done
+
+exit 0

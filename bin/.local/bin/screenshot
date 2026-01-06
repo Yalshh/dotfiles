@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DIR="${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"
+mkdir -p "$DIR"
+
+TS="$(date +'%Y-%m-%d_%H-%M-%S')"
+FILE="$DIR/${TS}.png"
+
+# Select area, save to file
+grim -g "$(slurp)" "$FILE"
+
+# Copy to clipboard
+wl-copy < "$FILE"
+
+# Notify with clickable action (open folder on click)
+~/.local/bin/notify-screenshot "$FILE" --folder

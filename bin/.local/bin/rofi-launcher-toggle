@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Toggle rofi drun launcher
+
+if pgrep -fa "rofi.*-name rofi-launcher" >/dev/null; then
+  pkill -f "rofi.*-name rofi-launcher"
+else
+  exec rofi -show drun -name rofi-launcher -config "$HOME/.config/rofi/config.rasi"
+fi

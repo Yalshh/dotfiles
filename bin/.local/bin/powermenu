@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+LOCKCONF="$HOME/.config/hyprlock/hyprlock.conf"
+
+choice=$(printf "󰍃  Logout\n  Lock\n  Reboot\n  Shutdown" | rofi -dmenu -p "Power")
+
+case "$choice" in
+  "󰍃  Logout")   hyprctl dispatch exit ;;
+  "  Lock")     hyprlock -c "$LOCKCONF" ;;
+  "  Reboot")   systemctl reboot ;;
+  "  Shutdown") systemctl poweroff ;;
+esac

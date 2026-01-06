@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Toggle rofi power menu
+
+if pgrep -fa "rofi.*-name rofi-power" >/dev/null; then
+  pkill -f "rofi.*-name rofi-power"
+else
+  exec rofi -dmenu -name rofi-power -p "Power" -theme "$HOME/.config/rofi/powermenu.rasi" \
+    <<< $'󰍃 Logout\n Lock\n Reboot\n Shutdown' | {
+      read -r choice
+      case "$choice" in
+        "󰍃 Logout")   hyprctl dispatch exit ;;
+        " Lock")     hyprlock -c "$HOME/.config/hyprlock/hyprlock.conf" ;;
+        " Reboot")   systemctl reboot ;;
+        " Shutdown") systemctl poweroff ;;
+      esac
+    }
+fi

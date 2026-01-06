@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rofi -dmenu \
+  -i \
+  -theme ~/.config/rofi/keybinds.rasi \
+  < ~/.config/hypr/keybinds.txt

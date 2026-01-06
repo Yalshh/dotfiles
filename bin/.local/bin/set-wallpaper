@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+WALLPAPER="$HOME/dotfiles/wallpapers/default.png"
+
+pgrep -x swww-daemon >/dev/null || swww-daemon &
+swww img "$WALLPAPER" --transition-type none
+
