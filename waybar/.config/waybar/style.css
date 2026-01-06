@@ -4,14 +4,15 @@
     font-size: 16px;
 }
 
+
 window#waybar {
     background: transparent;
     color: #c0caf5;
-    border-radius: 9px;
-    margin: 12px 100px;
 }
 
-/* Base module styling */
+/* BASE MODULE STYLING 
+   To tutaj każdy moduł staje się osobną "pudełkiem" z ostrymi krawędziami.
+*/
 #window,
 #custom-media,
 #mpd,
@@ -29,62 +30,40 @@ window#waybar {
 #clock,
 #tray,
 #custom-launcher,
-#custom-power {
-    background-color: transparent;
-    color: #bb9af7;
-    padding: 3px 10px;   /* balanced */
-    margin: 0;
-    border: none;
-    border-radius: 0;
-}
-
-/* Launcher */
-#custom-launcher {
+#custom-power,
+#custom-clipboard {
     background-color: #24283b;
     color: #bb9af7;
     border: solid 2px #565f89;
+    border-radius: 0;           /* Ostre krawędzie */
     padding: 3px 8px;
-    margin: 6px 4px;
+    margin: 6px 4px;           /* Odstęp między modułami */
 }
 
-/* MPD */
-#mpd {
+#custom-bluetooth {
     background-color: #24283b;
-    color: #9ece6a;
-    padding: 3px 8px;
-    margin: 6px 4px;
-}
-
-/* Window title */
-#window {
-    background-color: #24283b;
-    border: solid 2px #565f89;
     color: #bb9af7;
-    padding: 3px 8px;
-    margin: 6px 4px;
-}
-
-/* Center modules */
-.modules-center {
-    background-color: #24283b;
     border: solid 2px #565f89;
-    color: #bb9af7;
+    border-radius: 0;           /* Ostre krawędzie */
     padding: 3px 8px;
-    margin: 6px 4px;
+    margin: 6px 4px;           /* Odstęp między modułami */
 }
 
-/* Right modules */
+/* Wyłączenie kontenerów grupowych, aby nie dublować ramek */
+.modules-left,
+.modules-center,
 .modules-right {
-    background-color: #24283b;
-    border: solid 2px #565f89;
-    padding: 3px 8px;
-    margin: 6px 4px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Hyprland workspaces (replacement for river tags) */
+/* Workspaces (Obszary robocze) */
 #workspaces {
     background-color: #24283b;
     border: solid 2px #565f89;
+    border-radius: 0;           /* Ostre krawędzie */
     padding: 0;
     margin: 6px 4px;
 }
@@ -93,44 +72,35 @@ window#waybar {
     padding: 3px 10px;
     margin: 0;
     min-width: 26px;
-
     background-color: transparent;
     color: #c0caf5;
-
     border: 2px solid transparent; 
-    border-radius: 0;
+    border-radius: 0;           /* Ostre krawędzie przycisków */
 }
 
-/* Hover */
 #workspaces button:hover {
     background-color: #1a1b26;
     color: #c0caf5;
 }
 
-/* Active workspace */
 #workspaces button.active {
     background-color: #bb9af7;
     color: #1a1b26;
     border-color: #bb9af7;
 }
 
-/* Urgent */
-#workspaces button.urgent {
-    background-color: #f7768e;
-    color: #1a1b26;
+/* Cava */
+#cava {
+    background-color: #24283b;
+    color: #7dcfff;
+    font-family: "Iosevka Nerd Font";
+    border: solid 2px #565f89;
+    border-radius: 0;           /* Ostre krawędzie */
+    padding: 3px 12px;
+    margin: 6px 4px;
 }
 
-
-/* Module colors */
-#backlight  { color: #bb9af7; } 
-#network    { color: #bb9af7; }  
-#memory     { color: #bb9af7; } 
-#cpu        { color: #bb9af7; }  
-#pulseaudio { color: #bb9af7; }  
-#battery    { color: #bb9af7; }  
-
-#custom-clipboard {color: #bb9af7 }
-
+/* Kolory stanów specjalnych */
 #battery.charging,
 #battery.plugged {
     color: #9ece6a;
@@ -140,21 +110,10 @@ window#waybar {
     color: #f7768e;
 }
 
-/* Critical battery */
 #battery.critical:not(.charging) {
     background-color: #f7768e;
     color: #1a1b26;
     animation: blink 0.5s steps(12) infinite alternate;
-}
-
-/* Cava */
-#cava {
-    background-color: #24283b;
-    color: #7dcfff;
-    font-family: "Iosevka Nerd Font";
-    border: solid 2px #565f89;
-    padding: 3px 12px;   /* wider but same height */
-    margin: 6px 4px;
 }
 
 @keyframes blink {
@@ -164,10 +123,10 @@ window#waybar {
     }
 }
 
-/* Edge fixes */
-.modules-left > widget:first-child > #tags {
-    margin-left: 0;
-}
-.modules-right > widget:last-child > #tags {
-    margin-right: 0;
-}
+/* Specyficzne kolory ikon dla czytelności */
+#backlight  { color: #bb9af7; } 
+#network    { color: #bb9af7; }  
+#memory     { color: #bb9af7; } 
+#cpu        { color: #bb9af7; }  
+#pulseaudio { color: #bb9af7; }  
+#battery    { color: #bb9af7; }
