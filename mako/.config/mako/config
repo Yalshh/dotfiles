@@ -1,0 +1,60 @@
+
+# Position / size
+anchor=top-right
+margin=12
+padding=10
+width=360
+height=160
+
+# Visuals (square + border)
+border-size=2
+border-radius=0
+icons=1
+icon-path=/usr/share/icons/Papirus-Dark
+
+# Font
+font=Inter 10
+
+# Behavior
+layer=top
+default-timeout=6000
+ignore-timeout=1
+group-by=app-name
+
+# Interaction (make clicks always do something)
+# Left click: dismiss (reliable for all notifications)
+on-button-left=dismiss
+# Middle click: dismiss
+on-button-middle=dismiss
+# Right click: dismiss all
+on-button-right=dismiss-all
+
+# Colors (match typical Tokyo Night / Waybar border vibe)
+background-color=#16161EFF
+text-color=#c0caf5FF
+
+# Border like your blocks (slightly brighter than bg)
+border-color=#bb9af7
+
+# Progress bar / highlights (accent)
+progress-color=over #7aa2f7FF
+
+# ── urgency styling ──────────────────────────────────────────
+[urgency=low]
+default-timeout=3500
+border-color=#bb9af7
+
+[urgency=normal]
+default-timeout=6000
+border-color=#bb9af7
+
+[urgency=critical]
+default-timeout=0
+background-color=#1a1b26F2
+text-color=#c0caf5FF
+border-color=#f7768eFF
+
+[app-name="screenshot"]
+on-button-left=invoke-default-action
+
+

@@ -1,0 +1,29 @@
+/* ───────── swayosd ───────── */
+
+window {
+  background: rgba(22, 22, 30, 0.95);   /* #16161e */
+  border: 3px solid rgba(187, 154, 247, 1.0); /* #bb9af7 */
+  border-radius: 0px;
+  padding: 14px 20px;
+}
+
+label {
+  color: rgba(192, 202, 245, 1.0); /* #c0caf5 */
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 11pt;
+}
+
+/* Progress bar container */
+progressbar trough {
+  background: rgba(86, 95, 137, 0.45); /* #565f89 */
+  border-radius: 0px;
+  min-height: 12px;
+  min-width: 220px;
+}
+
+/* Actual volume bar */
+progressbar progress {
+  background: rgba(187, 154, 247, 1.0); /* #7aa2f7 */
+  border-radius: 0px;
+}
+

@@ -1,0 +1,5 @@
+[general]
+# bottom center, jak GNOME
+anchor=bottom
+margin=40
+timeout=1200
