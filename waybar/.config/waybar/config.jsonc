@@ -37,9 +37,10 @@
   // ─────────────────────────────────────────────────────────────────────────────
   // Modules configuration
   // ─────────────────────────────────────────────────────────────────────────────
+ 
 
   "custom/launcher": {
-    "format": "",
+    "format": "󰍜",
     "tooltip": false,
     "on-click": "rofi -show drun"
   },
@@ -83,7 +84,28 @@
 
   "clock": {
     "tooltip-format": "󰥔 <big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "󰥔  {:%d.%m.%Y %H:%M}"
+    "format": "󰥔  {:%d.%m.%Y %H:%M}",
+            "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    },
   },
 
   "cpu": {
@@ -137,7 +159,7 @@
       "car": " ",
       "default": [" ", " ", " "]
     },
-    "on-click": "pavucontrol"
+    "on-click": "kitty -e wiremix"
   },
 
   "custom/clipboard": {
@@ -149,7 +171,7 @@
   "custom/bluetooth": {
     "format": "󰂯",
     "tooltip": false,
-    "on-click": "blueman-manager"
+    "on-click": "kitty -e bluetuith"
   },
 
   "custom/power": {

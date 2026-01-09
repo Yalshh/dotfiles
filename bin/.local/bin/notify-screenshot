@@ -29,9 +29,9 @@ open_target() {
     return 0
   fi
 
-  # 2) prefer Dolphin if installed
-  if command -v dolphin >/dev/null 2>&1; then
-    setsid -f dolphin "$OPEN_TARGET" >/dev/null 2>&1 || true
+  # 2) prefer Thunar if installed
+  if command -v thunar >/dev/null 2>&1; then
+    setsid -f thunar "$OPEN_TARGET" >/dev/null 2>&1 || true
     return 0
   fi
 
