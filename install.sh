@@ -3,21 +3,30 @@ set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "==> Dotfiles dir: $DOTFILES_DIR"
+log() { printf "\n==> %s\n" "$*"; }
+warn() { printf "\n!! %s\n" "$*" >&2; }
 
-# 1) Pacman packages (core rice)
-if [[ -f "$DOTFILES_DIR/packages/core.txt" ]]; then
-  echo "==> Installing pacman packages from packages/core.txt"
-  sudo pacman -Syu --needed --noconfirm $(grep -vE '^\s*#|^\s*$' "$DOTFILES_DIR/packages/core.txt")
-else
-  echo "!! Missing packages/core.txt"
+log "Dotfiles dir: $DOTFILES_DIR"
+
+# 0) sanity
+if [[ ! -d "$DOTFILES_DIR/.config" ]]; then
+  warn "Missing $DOTFILES_DIR/.config"
   exit 1
 fi
 
-# 2) AUR helper (yay) if needed
+# 1) pacman packages
+if [[ -f "$DOTFILES_DIR/packages/core.txt" ]]; then
+  log "Installing pacman packages from packages/core.txt"
+  sudo pacman -Syu --needed --noconfirm $(grep -vE '^\s*#|^\s*$' "$DOTFILES_DIR/packages/core.txt")
+else
+  warn "Missing packages/core.txt"
+  exit 1
+fi
+
+# 2) yay + AUR (optional)
 if [[ -f "$DOTFILES_DIR/packages/aur.txt" ]] && grep -qvE '^\s*#|^\s*$' "$DOTFILES_DIR/packages/aur.txt"; then
   if ! command -v yay >/dev/null 2>&1; then
-    echo "==> yay not found. Installing yay..."
+    log "yay not found. Installing yay..."
     sudo pacman -S --needed --noconfirm git base-devel
     tmpdir="$(mktemp -d)"
     git clone https://aur.archlinux.org/yay.git "$tmpdir/yay"
@@ -25,29 +34,30 @@ if [[ -f "$DOTFILES_DIR/packages/aur.txt" ]] && grep -qvE '^\s*#|^\s*$' "$DOTFIL
     rm -rf "$tmpdir"
   fi
 
-  echo "==> Installing AUR packages from packages/aur.txt"
+  log "Installing AUR packages from packages/aur.txt"
   yay -S --needed --noconfirm $(grep -vE '^\s*#|^\s*$' "$DOTFILES_DIR/packages/aur.txt")
 fi
 
-# 3) Symlinks with backup
+# 3) backup + symlinks
 backup_dir="$HOME/.config.backup.$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$backup_dir"
 
-echo "==> Symlinking .config"
+log "Symlinking ~/.config/*"
 mkdir -p "$HOME/.config"
 for src in "$DOTFILES_DIR/.config/"*; do
   name="$(basename "$src")"
   dest="$HOME/.config/$name"
 
+  # if there's a real dir/file already, back it up
   if [[ -e "$dest" && ! -L "$dest" ]]; then
-    echo "   - Backing up existing $dest -> $backup_dir/"
+    log "Backing up existing $dest -> $backup_dir/"
     mv "$dest" "$backup_dir/"
   fi
 
   ln -sfn "$src" "$dest"
 done
 
-echo "==> Symlinking .local/bin"
+log "Symlinking ~/.local/bin/*"
 mkdir -p "$HOME/.local/bin"
 if compgen -G "$DOTFILES_DIR/.local/bin/*" > /dev/null; then
   for src in "$DOTFILES_DIR/.local/bin/"*; do
@@ -55,5 +65,5 @@ if compgen -G "$DOTFILES_DIR/.local/bin/*" > /dev/null; then
   done
 fi
 
-echo "==> Done. Backup (if any): $backup_dir"
-echo "==> You may want to reboot or relogin."
+log "Done. Backup (if any): $backup_dir"
+log "Next: run ./postinstall.sh and relog/reboot"
