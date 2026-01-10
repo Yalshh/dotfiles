@@ -171,7 +171,7 @@
   "custom/bluetooth": {
     "format": "󰂯",
     "tooltip": false,
-    "on-click": "kitty -e bluetuith"
+    "on-click": "kitty -e bluetui"
   },
 
   "custom/power": {

@@ -1,0 +1,12 @@
+# system junk
+.DS_Store
+*.swp
+
+# do not version caches/logs
+.config/**/cache/
+.config/**/log/
+.config/**/logs/
+.config/**/state/
+
+# optional: big wallpapers if you want to keep repo small
+# wallpapers/
