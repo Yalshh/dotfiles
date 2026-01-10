@@ -1,0 +1,64 @@
+========================
+ KEYBIND CHEATSHEET
+========================
+─ Core ─────────────────────────
+SUPER + Enter        → Open terminal
+SUPER + E            → Open file manager
+SUPER + B            → Open browser
+SUPER + R            → App launcher (rofi)
+SUPER + Q            → Power menu
+SUPER + C            → Close active window
+SUPER + M            → Logout / Exit Hyprland
+SUPER + L            → Lock screen
+SUPER + F            → Toggle fullscreen
+SUPER + W            → Toggle floating window
+
+─ Layout / Dwindle ─────────────
+SUPER + P            → Toggle pseudo tiling
+SUPER + J            → Toggle split direction
+
+─ Screenshots / Clipboard ──────
+SUPER + SHIFT + S    → Screenshot (area)
+SUPER + V            → Clipboard history
+
+─ Window Focus ─────────────────
+SUPER + ←            → Focus window left
+SUPER + →            → Focus window right
+SUPER + ↑            → Focus window up
+SUPER + ↓            → Focus window down
+
+─ Move Window (Layout) ─────────
+SUPER + CTRL + ←     → Move window left
+SUPER + CTRL + →     → Move window right
+SUPER + CTRL + ↑     → Move window up
+SUPER + CTRL + ↓     → Move window down
+
+─ Workspaces ───────────────────
+SUPER + 1..9         → Switch to workspace 1–9
+SUPER + 0            → Switch to workspace 10
+
+SUPER + SHIFT + 1..9 → Move window to workspace 1–9
+SUPER + SHIFT + 0    → Move window to workspace 10
+
+─ Workspace Navigation ─────────
+SUPER + Scroll ↓     → Next workspace
+SUPER + Scroll ↑     → Previous workspace
+
+─ Mouse Actions ────────────────
+SUPER + LMB drag     → Move window
+SUPER + RMB drag     → Resize window
+
+─ Media / Audio ────────────────
+XF86AudioRaiseVolume → Volume up
+XF86AudioLowerVolume → Volume down
+XF86AudioMute        → Mute output
+XF86AudioMicMute     → Mute microphone
+
+XF86AudioPlay        → Play / Pause
+XF86AudioPause       → Play / Pause
+XF86AudioNext        → Next track
+XF86AudioPrev        → Previous track
+
+─ Brightness (Laptop) ──────────
+XF86MonBrightnessUp   → Brightness up
+XF86MonBrightnessDown → Brightness down
