@@ -41,3 +41,21 @@ bluetui
 # --- Themes / fonts (tylko jeśli faktycznie używasz) ---
 awesome-terminal-fonts
 cantarell-fonts
+
+# --- Session helpers ---
+hyprpolkitagent
+udiskie
+
+# --- Media keys / brightness ---
+brightnessctl
+playerctl
+
+# --- Mixer TUI ---
+wiremix
+
+# --- Basics used by scripts/configs ---
+procps-ng
+glib2
+
+# --- Wallpaper ---
+swww
