@@ -1,3 +1,0 @@
-bibata-cursor-theme-bin
-gtk-engine-murrine
-python-yapsy-git

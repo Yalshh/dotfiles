@@ -1,9 +1,11 @@
-# junk
-.DS_Store
-*.swp
-
 # caches/logs/states
 .config/**/cache/
 .config/**/log/
 .config/**/logs/
 .config/**/state/
+.config/**/.cache/
+
+# editor junk
+*.swp
+*.swo
+.DS_Store
