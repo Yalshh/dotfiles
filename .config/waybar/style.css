@@ -1,5 +1,5 @@
 * {
-  font-family: "IosevkaTerm Nerd Font Propo", sans-serif;
+  font-family: "IosevkaTerm Nerd Font Propo", "IosevkaTerm Nerd Font Propo", "Noto Sans Mono Cachy", sans-serif;
   font-weight: 700;
   font-size: 16px;
 }
@@ -26,7 +26,6 @@ window#waybar {
 /* Base look for modules inside capsules */
 #custom-launcher{
   font-size: 20px;
-  background-image: url('~/.config/waybar/icons/cachy.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -43,6 +42,7 @@ window#waybar {
 #battery,
 #cpu,
 #clock,
+#custom-updates,
 #custom-power {
   background: transparent;
   border: 0;
@@ -121,6 +121,7 @@ window#waybar {
 #network:hover,
 #backlight:hover,
 #battery:hover,
+#custom-updates:hover, 
 #clock:hover,
 #custom-power:hover {
   background-color: rgba(187, 154, 247, 0.12);

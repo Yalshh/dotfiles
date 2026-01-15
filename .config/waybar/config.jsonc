@@ -4,6 +4,7 @@
   "position": "top",
   "height": 25,
   "spacing": 0,
+  "output": "DP-1",
 
   // ─────────────────────────────────────────────────────────────────────────────
   // Layout
@@ -24,6 +25,7 @@
   ],
   "modules-right": [
     "custom/clipboard",
+    "custom/updates",
     "pulseaudio",
     "custom/bluetooth",
     "network",
@@ -40,7 +42,7 @@
  
 
   "custom/launcher": {
-    "format": "󰍜",
+    "format": "",
     "tooltip": false,
     "on-click": "rofi -show drun"
   },
@@ -139,7 +141,7 @@
 
   "network": {
     "format-wifi": "{icon} {essid}",
-    "format-ethernet": "󰌗  {ifname}",
+    "format-ethernet": "󰌗  {bandwidthDownBits}",
     "format-disconnected": "󰌙  Offline",
     "format-alt": "󰌗  {ifname}: {ipaddr}/{cidr}",
     "interval": 5,
@@ -202,6 +204,20 @@
   "icon-size": 18,
   "spacing": 10,
   "show-passive-items": true
+},
+
+"custom/updates": {
+    "format": "{icon}",
+    "return-type": "json",
+    "format-icons": {
+        "has-updates": "󰮯",
+        "updated": ""
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --no-zero-output",
+    "on-click": "kitty -e sudo pacman -Syu"
+
+
 }
 
 }
