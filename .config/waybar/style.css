@@ -119,6 +119,7 @@ window#waybar {
 #custom-bluetooth:hover,
 #pulseaudio:hover,
 #network:hover,
+#workspaces button:hover,
 #backlight:hover,
 #battery:hover,
 #custom-updates:hover, 
